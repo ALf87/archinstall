@@ -60,7 +60,7 @@ mkdir -p "$mount_dir/home"
 mount "$home_partition" "$mount_dir/home"
 
 # Установка базовой системы и звука с использованием Pipewire
-pacstrap /mnt base linux linux-firmware base-devel nano git dhcpcd networkmanager network-manager-applet xorg xorg-drivers pipewire pipewire-alsa pipewire-pulse pavucontrol intel-ucode
+pacstrap /mnt base linux linux-firmware base-devel nano git curl dhcpcd networkmanager network-manager-applet xorg xorg-drivers pipewire pipewire-alsa pipewire-pulse pavucontrol intel-ucode
 
 # Генерация файла /etc/fstab на основе меток разделов
 genfstab -L /mnt >> /mnt/etc/fstab
