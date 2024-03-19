@@ -117,10 +117,10 @@ sleep 2
 arch-chroot /mnt bootctl install
 
 # Создание файла загрузчика loader.conf
-echo "default arch" > /mnt/boot/loader/loader.conf
-echo "timeout 4" >> /mnt/boot/loader/loader.conf
-echo "console-mode max" >> /mnt/boot/loader/loader.conf
-echo "editor no" >> /mnt/boot/loader/loader.conf
+chroot /mnt /bin/bash -c "echo 'default arch' > /boot/loader/loader.conf"
+chroot /mnt /bin/bash -c "echo 'timeout 0' >> /boot/loader/loader.conf"
+chroot /mnt /bin/bash -c "echo 'console-mode max' >> /boot/loader/loader.conf"
+chroot /mnt /bin/bash -c "echo 'editor no' >> /boot/loader/loader.conf"
 
 # Создание файла конфигурации для загрузчика с использованием лейбла корневого раздела и добавлением поддержки intel-ucode
 arch-chroot /mnt bash -c 'echo "title Arch Linux" > /boot/loader/entries/arch.conf'
