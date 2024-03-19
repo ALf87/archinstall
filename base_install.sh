@@ -60,7 +60,7 @@ mkdir -p "$mount_dir/home"
 mount "$home_partition" "$mount_dir/home"
 
 # Установка базовой системы и звука с использованием Pipewire
-pacstrap /mnt base linux linux-firmware base-devel nano dhcpcd networkmanager xorg xorg-drivers pipewire pipewire-alsa pipewire-pulse pavucontrol intel-ucode
+pacstrap /mnt base linux linux-firmware base-devel nano git dhcpcd networkmanager network-manager-applet xorg xorg-drivers pipewire pipewire-alsa pipewire-pulse pavucontrol intel-ucode
 
 # Генерация файла /etc/fstab на основе меток разделов
 genfstab -L /mnt >> /mnt/etc/fstab
@@ -130,5 +130,9 @@ arch-chroot /mnt bash -c 'echo "initrd /initramfs-linux.img" >> /boot/loader/ent
 arch-chroot /mnt bash -c 'echo "options root=LABEL=root rw" >> /boot/loader/entries/arch.conf'
 
 # Информирование пользователя о завершении установки
-echo "Базовая система успешно установлена! Вы можете перезагрузить систему."
+echo "Базовая система успешно установлена!"
+sleep 5
+echo "Перезагрузитесь и запустите вторую часть скрипта"
+
+
 
